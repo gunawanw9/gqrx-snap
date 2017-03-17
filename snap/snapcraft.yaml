@@ -15,14 +15,38 @@ apps:
     plugs: [home, pulseaudio, unity7]
 
 parts:
+  gnuradio:
+    source: https://github.com/gnuradio/gnuradio.git
+    source-tag: v3.7.11
+    plugin: cmake
+    configflags: [ -DCMAKE_INSTALL_PREFIX=/usr ]
+    build-packages:
+      - doxygen
+      - g++
+      - libboost-date-time-dev
+      - libboost-filesystem-dev
+      - libboost-program-options-dev
+      - libboost-regex-dev
+      - libboost-system-dev
+      - libboost-thread-dev
+      - libgsl-dev
+      - liborc-0.4-dev
+      - libqt4-dev
+      - libsdl1.2-dev
+      - libusb-1.0-0-dev
+      - libzmq-dev
+      - python-numpy
+      - python-sphinx
+      - qt4-dev-tools
+      - swig
+
   gqrx:
     source: https://github.com/csete/gqrx.git
     source-tag: v2.6.1
     plugin: cmake
-    after: [desktop-qt5]
+    after: [gnuradio, desktop-qt5]
     build-packages:
       - g++
-      - gnuradio-dev
       - gr-osmosdr
       - libboost-program-options-dev
       - libboost-system-dev
