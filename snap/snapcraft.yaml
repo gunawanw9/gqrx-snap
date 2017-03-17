@@ -1,0 +1,29 @@
+name: gqrx-lool
+version: 2.6.1
+summary: Software defined radio receiver powered by GNU Radio and Qt
+description: |
+  Gqrx is an open source software defined radio (SDR) receiver implemented
+  using GNU Radio and the Qt GUI toolkit. Currently it works on Linux and Mac
+  with hardware supported by gr-osmosdr, including Funcube Dongle, RTL-SDR,
+  Airspy, HackRF, BladeRF, RFSpace, USRP and SoapySDR.
+grade: stable
+confinement: strict
+
+apps:
+  gqrx:
+    command: bin/gqrx
+
+parts:
+  gqrx:
+    plugin: cmake
+    source: https://github.com/csete/gqrx.git
+    source-tag: v2.6.1
+    build-packages:
+      - g++
+      - gnuradio-dev
+      - gr-osmosdr
+      - libboost-program-options-dev
+      - libboost-system-dev
+      - libpulse-dev
+      - libqt5svg5-dev
+      - qtbase5-dev
