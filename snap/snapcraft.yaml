@@ -11,10 +11,10 @@ confinement: strict
 
 apps:
   gqrx:
-    command: desktop-launch env GR_PREFIX=$SNAP gqrx
+    command: desktop-launch env GR_PREFIX=$SNAP SOAPY_SDR_ROOT=$SNAP gqrx
     plugs: [home, pulseaudio, unity7]
   SoapySDRUtil:
-    command: SoapySDRUtil
+    command: env SOAPY_SDR_ROOT=$SNAP SoapySDRUtil
 
 parts:
   gnuradio:
