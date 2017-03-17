@@ -11,13 +11,15 @@ confinement: strict
 
 apps:
   gqrx:
-    command: bin/gqrx
+    command: desktop-launch gqrx
+    plugs: [pulseaudio, unity7]
 
 parts:
   gqrx:
-    plugin: cmake
     source: https://github.com/csete/gqrx.git
     source-tag: v2.6.1
+    plugin: cmake
+    after: [desktop-qt5]
     build-packages:
       - g++
       - gnuradio-dev
@@ -27,3 +29,4 @@ parts:
       - libpulse-dev
       - libqt5svg5-dev
       - qtbase5-dev
+
