@@ -13,6 +13,8 @@ apps:
   gqrx:
     command: desktop-launch env GR_PREFIX=$SNAP gqrx
     plugs: [home, pulseaudio, unity7]
+  SoapySDRUtil:
+    command: SoapySDRUtil
 
 parts:
   gnuradio:
@@ -40,12 +42,19 @@ parts:
       - qt4-dev-tools
       - swig
 
+  soapysdr:
+    source: https://github.com/pothosware/SoapySDR.git
+    # recent is a few months old, but affects binary compat
+    source-tag: soapy-sdr-0.5.4 
+    plugin: cmake
+    build-packages: [ gcc, g++ ]
+
   gr-osmosdr:
     source: https://github.com/osmocom/gr-osmosdr.git
     # no recent release
     #source-tag: v0.1.4
     plugin: cmake
-    after: [gnuradio]
+    after: [gnuradio, soapysdr]
 
   gqrx:
     source: https://github.com/csete/gqrx.git
