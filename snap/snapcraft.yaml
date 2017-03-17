@@ -49,6 +49,14 @@ parts:
     plugin: cmake
     build-packages: [ gcc, g++ ]
 
+  liblimesuite:
+    source: https://github.com/myriadrf/LimeSuite.git
+    source-tag: v17.02.1
+    plugin: cmake
+    after: [ soapysdr, ]
+    build-packages: [ libsqlite3-dev, libusb-1.0-0-dev ]
+    stage-packages: [ libsqlite3-0, libusb-1.0-0 ]
+
   gr-osmosdr:
     source: https://github.com/osmocom/gr-osmosdr.git
     # no recent release
