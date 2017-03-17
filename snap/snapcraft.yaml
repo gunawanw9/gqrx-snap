@@ -40,6 +40,13 @@ parts:
       - qt4-dev-tools
       - swig
 
+  gr-osmosdr:
+    source: https://github.com/osmocom/gr-osmosdr.git
+    # no recent release
+    #source-tag: v0.1.4
+    plugin: cmake
+    after: [gnuradio]
+
   gqrx:
     source: https://github.com/csete/gqrx.git
     source-tag: v2.6.1
@@ -47,7 +54,6 @@ parts:
     after: [gnuradio, desktop-qt5]
     build-packages:
       - g++
-      - gr-osmosdr
       - libboost-program-options-dev
       - libboost-system-dev
       - libpulse-dev
