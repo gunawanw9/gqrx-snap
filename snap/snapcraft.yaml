@@ -29,4 +29,8 @@ parts:
       - libpulse-dev
       - libqt5svg5-dev
       - qtbase5-dev
+    install: |
+      mkdir -p $SNAPCRAFT_PART_INSTALL/setup/gui
+      cp -f ../src/gqrx.desktop ../src/resources/icons/gqrx.svg \
+            $SNAPCRAFT_PART_INSTALL/setup/gui
 
