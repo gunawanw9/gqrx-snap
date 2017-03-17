@@ -11,8 +11,8 @@ confinement: strict
 
 apps:
   gqrx:
-    command: desktop-launch gqrx
-    plugs: [pulseaudio, unity7]
+    command: desktop-launch env GR_PREFIX=$SNAP gqrx
+    plugs: [home, pulseaudio, unity7]
 
 parts:
   gqrx:
