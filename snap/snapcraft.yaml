@@ -78,7 +78,7 @@ parts:
       - libqt5svg5-dev
       - qtbase5-dev
     install: |
-      mkdir -p $SNAPCRAFT_PART_INSTALL/setup/gui
+      mkdir -p $SNAPCRAFT_PART_INSTALL/meta/gui
       cp -f ../src/gqrx.desktop ../src/resources/icons/gqrx.svg \
-            $SNAPCRAFT_PART_INSTALL/setup/gui
+            $SNAPCRAFT_PART_INSTALL/meta/gui
 
