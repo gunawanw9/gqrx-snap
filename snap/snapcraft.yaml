@@ -71,7 +71,7 @@ parts:
   gqrx:
     source: https://github.com/csete/gqrx.git
     source-tag: v2.6.1
-    after: [gnuradio, desktop-qt5]
+    after: [desktop-qt5, gnuradio, gr-osmosdr]
     plugin: cmake
     build-packages:
       - g++
