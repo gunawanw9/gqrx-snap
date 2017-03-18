@@ -12,6 +12,7 @@ confinement: strict
 apps:
   gqrx:
     command: desktop-launch env GR_PREFIX=$SNAP SOAPY_SDR_ROOT=$SNAP gqrx
+    desktop: gqrx.desktop
     plugs: [home, pulseaudio, unity7]
   SoapySDRUtil:
     command: env SOAPY_SDR_ROOT=$SNAP SoapySDRUtil
@@ -81,10 +82,13 @@ parts:
       - libqt5svg5-dev
       - qtbase5-dev
     install: |
-      mkdir -p $SNAPCRAFT_PART_INSTALL/meta/gui
       cp -f ../src/gqrx.desktop ../src/resources/icons/gqrx.svg \
-            $SNAPCRAFT_PART_INSTALL/meta/gui
-      # snapcraft doesn't allow missing icon extension
-      sed -i 's/^Icon=gqrx$/&.svg/' \
-          $SNAPCRAFT_PART_INSTALL/meta/gui/gqrx.desktop
+            $SNAPCRAFT_PART_INSTALL
+      # patch Exec line to use fully qualified name; also snapcraft seems to
+      # require an extension for the Icon and breaks with non-ascii chars
+      sed -i \
+          -e '/]=/d' \
+          -e '/^Exec=/s/=.*/=gqrx-lool.gqrx/' \
+          -e 's/^Icon=gqrx$/&.svg/' \
+          $SNAPCRAFT_PART_INSTALL/gqrx.desktop
 
