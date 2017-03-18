@@ -37,6 +37,7 @@ parts:
       - libsdl1.2-dev
       - libusb-1.0-0-dev
       - libzmq-dev
+      - python-cheetah
       - python-numpy
       - python-sphinx
       - qt4-dev-tools
