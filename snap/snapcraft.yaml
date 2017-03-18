@@ -84,4 +84,7 @@ parts:
       mkdir -p $SNAPCRAFT_PART_INSTALL/meta/gui
       cp -f ../src/gqrx.desktop ../src/resources/icons/gqrx.svg \
             $SNAPCRAFT_PART_INSTALL/meta/gui
+      # snapcraft doesn't allow missing icon extension
+      sed -i 's/^Icon=gqrx$/&.svg/' \
+          $SNAPCRAFT_PART_INSTALL/meta/gui/gqrx.desktop
 
