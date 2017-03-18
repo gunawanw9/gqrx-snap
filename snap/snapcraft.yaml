@@ -55,8 +55,8 @@ parts:
   liblimesuite:
     source: https://github.com/myriadrf/LimeSuite.git
     source-tag: v17.02.1
-    plugin: cmake
     after: [ soapysdr, ]
+    plugin: cmake
     build-packages: [ libsqlite3-dev, libusb-1.0-0-dev ]
     stage-packages: [ libsqlite3-0, libusb-1.0-0 ]
 
@@ -64,14 +64,15 @@ parts:
     source: https://github.com/osmocom/gr-osmosdr.git
     # no recent release
     #source-tag: v0.1.4
-    plugin: cmake
     after: [gnuradio, soapysdr]
+    plugin: cmake
+    configflags: [ -DCMAKE_INSTALL_PREFIX=/usr ]
 
   gqrx:
     source: https://github.com/csete/gqrx.git
     source-tag: v2.6.1
-    plugin: cmake
     after: [gnuradio, desktop-qt5]
+    plugin: cmake
     build-packages:
       - g++
       - libboost-program-options-dev
