@@ -32,6 +32,7 @@ parts:
       - libboost-test-dev
       - libboost-thread-dev
       - libcppunit-dev
+      - libfftw3-dev
       - libgsl-dev
       - liborc-0.4-dev
       - libqt4-dev
